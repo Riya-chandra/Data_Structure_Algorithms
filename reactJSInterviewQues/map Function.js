@@ -1,2 +1,0 @@
-//implement custom map function 
-
