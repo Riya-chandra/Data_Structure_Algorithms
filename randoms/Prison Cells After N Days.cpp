@@ -3,7 +3,6 @@ public:
     vector<int> prisonAfterNDays(vector<int>& cells, int n) {
         vector<int> result = cells;
         unordered_map<string, int> seen; // store state -> remaining days
-
         while(n > 0){
             string state = "";
             for(int c : result) state += to_string(c);
