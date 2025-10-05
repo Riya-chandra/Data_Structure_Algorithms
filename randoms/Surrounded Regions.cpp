@@ -1,0 +1,42 @@
+class Solution {
+public:
+
+    void dfs(vector<vector<char>>& board, int i, int j, vector<vector<bool>>& visited){
+        int m = board.size();
+        int n = board[0].size();
+        if(i < 0 || i >= m || j < 0 || j >= n) return;
+        if(board[i][j] != 'O' || visited[i][j]) return;
+
+        visited[i][j] = true;
+
+        dfs(board, i+1, j, visited);
+        dfs(board, i-1, j, visited);
+        dfs(board, i, j+1, visited);
+        dfs(board, i, j-1, visited);
+    }
+
+    void solve(vector<vector<char>>& board) {
+        int m = board.size();
+        if(m == 0) return;
+        int n = board[0].size();
+
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+
+        // Start DFS only from border 'O's
+        for(int i = 0; i < m; i++){
+            if(board[i][0] == 'O') dfs(board, i, 0, visited);
+            if(board[i][n-1] == 'O') dfs(board, i, n-1, visited);
+        }
+        for(int j = 0; j < n; j++){
+            if(board[0][j] == 'O') dfs(board, 0, j, visited);
+            if(board[m-1][j] == 'O') dfs(board, m-1, j, visited);
+        }
+
+        // Flip all other 'O's to 'X'
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(board[i][j] == 'O' && !visited[i][j]) board[i][j] = 'X';
+            }
+        }
+    }
+};
