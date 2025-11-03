@@ -17,7 +17,7 @@ public:
                                                 // m 1 hai toh not enogh cards
                         return false;
                     count[nextCard] -= need;
-                }
+                } 
             }
         }
 
