@@ -17,4 +17,3 @@ public:
         return plus - minus;
     }
 };
-©leetcode
