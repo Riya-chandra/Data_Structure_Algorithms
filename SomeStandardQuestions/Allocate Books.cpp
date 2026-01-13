@@ -37,3 +37,11 @@ int allocateBooks(vector<int>& arr, int n, int m) {
    }
    return ans;
 }
+
+
+int main() {
+    vector<int> arr = {12, 34, 67, 90};
+    int students = 2;
+    cout << allocateBooks(arr, arr.size(), students);
+    return 0;
+}
